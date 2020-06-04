@@ -7,7 +7,8 @@ import Keypad from '../components/keypad';
 
 import {
     gridAction,
-    keypadAction
+    keypadAction, 
+    gridAction2, 
 } from '../redux/actions';
 
 @connect(
@@ -15,13 +16,14 @@ import {
         grid: state.grid,
         keypad: state.keypad,
     }),
-    { gridAction, keypadAction },
+    { gridAction, keypadAction, gridAction2 },
 )
 class AppGame extends Component {
     static propTypes = {
         grid: PropTypes.object,
         keypad: PropTypes.object,
         gridAction: PropTypes.func,
+        gridAction2: PropTypes.func, 
         keypadAction: PropTypes.func,
     };
 
@@ -38,11 +40,11 @@ class AppGame extends Component {
     }
 
     render() {
-        const { grid, keypad, gridAction, keypadAction } = this.props;
+        const { grid, keypad, gridAction, keypadAction, gridAction2 } = this.props;
 
         return (
             <Fragment>
-                <Grid grid={grid} gridAction={gridAction} />
+                <Grid grid={grid} gridAction={gridAction} gridAction2={gridAction2} />
                 <Keypad keypad={keypad} keypadAction={keypadAction} />
             </Fragment>
         );
